@@ -1,12 +1,12 @@
-# TwigView - Laravel View Replacement #
+# Laravel Twig - Laravel View Replacement
 
-TwigView replaces the default Laravel View class with the 
+Laravel Twig is a clone of TwigView which replaces the default Laravel View class with the 
 [Twig Template Engine](http://twig.sensiolabs.org/).
 
-We need [Composer](http://getcomposer.org/) and the [composer bundle](http://bundles.laravel.com/bundle/composer) 
+We use [Composer](http://getcomposer.org/) and the [composer bundle](http://bundles.laravel.com/bundle/composer) 
 to fetch the Twig library.
 
-##Composer Setup
+##Install Composer
 Install composer inside your project directory
 
 	curl -s http://getcomposer.org/installer | php
@@ -24,10 +24,9 @@ Install your composer packages
 
 	php composer.phar install  
 
-##Bundle Setup
 Install the composer bundle
 
-	$ php artisan bundle:install composer
+	php artisan bundle:install composer
 
 Include it in application/bundles.php
 
@@ -35,31 +34,23 @@ Include it in application/bundles.php
 		'composer' => array('auto' => true),
 	);
 
-## Installation ##
+## Install the Twig bundle
 
-1. Download the Source
-1. Register the Bundle with Laravel
-1. Replace the View alias (optional)
+	php artisan bundle:install twig
 
-### Download the Source ###
-
-Download a copy of the source from [Github](https://github.com/akhawaja/TwigView).
-
-### Register the Bundle with Laravel ###
-
-In the *application/bundles.php* file, register the TwigView bundle
+In the *application/bundles.php* file, register the Twig bundle
 
 ```php
-'twigview' => array(
+	'twigview' => array(
     'location' => 'twig', 'autoloads' => array(
         'map' => array(
             'TwigView\\View' => '(:bundle)/view.php',
-        )
-    )
-)
+        	)
+    	)
+    ),
 ```
 
-### Replace the View alias (optional) ###
+Replace the View alias (optional)
 
 In the *application/config/application.php* file, replace the alias with the following:
 
@@ -76,6 +67,24 @@ If you leave the alias as-is, you can still call \TwigView\View in your controll
 
 All your views must have the *.twig* file extension. You can use the TwigView\View object in the same 
 manner as the Laravel\View object. Just keep in mind that you are using Twig syntax inside your views.
+
+For example call the Twig view like this
+
+```php
+$data = array('message' => 'Hello');
+return \TwigView\View::make('home.index', $data);
+``` 
+
+If you aliased TwigView you can do this
+
+```php
+$data = array('message' => 'Hello');
+return View::make('home.index', $data);
+``` 
+
+and in your home/index.twig do this
+
+	{{ message }}
 
 ## License ##
 
