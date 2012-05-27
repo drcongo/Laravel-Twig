@@ -73,11 +73,12 @@ class View extends Laravel\View
                 require_once $file;
             }
 
+            // Removing loader since we are loading it via composer
             // Include the Twig Autoloader
-            require_once dirname(__FILE__).DS.'Twig/Autoloader.php';
+            // require_once dirname(__FILE__).DS.'Twig/Autoloader.php';
 
             // Register the Twig Autoloader.
-            \Twig_Autoloader::register();
+            // \Twig_Autoloader::register();
 
             // Build the Twig object. By default, we will add the application views folder and the
             // bundle's views folder to the Twig loader.
