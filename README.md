@@ -3,7 +3,7 @@
 TwigView replaces the default Laravel View class with the 
 [Twig Template Engine](http://twig.sensiolabs.org/).
 
-We need composer and the [composer bundle setup](http://bundles.laravel.com/bundle/composer) 
+We need [Composer](http://getcomposer.org/) and the [composer bundle](http://bundles.laravel.com/bundle/composer) 
 to fetch the Twig library.
 
 ##Composer Setup
