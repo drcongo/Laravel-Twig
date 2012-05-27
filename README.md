@@ -51,7 +51,7 @@ In the *application/bundles.php* file, register the TwigView bundle
 
 ```php
 'twigview' => array(
-    'location' => 'twigview', 'autoloads' => array(
+    'location' => 'twig', 'autoloads' => array(
         'map' => array(
             'TwigView\\View' => '(:bundle)/view.php',
         )
