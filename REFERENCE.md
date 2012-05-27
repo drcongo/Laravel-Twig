@@ -23,7 +23,7 @@ Params:
 
 - $conf: The config key to read
 - $default: The default value when nothing is found
-- e.g. {{ conf('application.key') }}
+- e.g. {{ config('application.key') }}
 
 ### email ###
 
