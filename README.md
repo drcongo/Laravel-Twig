@@ -1,6 +1,6 @@
 # Laravel Twig - Laravel View Replacement
 
-Laravel Twig is a clone of TwigView which replaces the default Laravel View class with the 
+Laravel Twig is a clone of [TwigView](https://github.com/akhawaja/TwigView) which replaces the default Laravel View class with the 
 [Twig Template Engine](http://twig.sensiolabs.org/).
 
 We use [Composer](http://getcomposer.org/) and the [composer bundle](http://bundles.laravel.com/bundle/composer) 
