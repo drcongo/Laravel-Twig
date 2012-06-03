@@ -11,7 +11,7 @@ Install composer inside your project directory
 
 	curl -s http://getcomposer.org/installer | php
 
-Create a composer.json file at the root of your project
+Create a **composer.json** file at the root of your project
   
 	{
 	    "require": {
@@ -20,27 +20,22 @@ Create a composer.json file at the root of your project
 	    }
 	}
 
-Install your composer packages
+Install your composer packages, which will install the Twig library files in your **vendor/** directory.
 
 	php composer.phar install  
 
-Install the composer bundle
-
-	php artisan bundle:install composer
-
-Include it in application/bundles.php
-
-	return array(
-		'composer' => array('auto' => true),
-	);
 
 ## Install the Twig bundle
 
 	php artisan bundle:install twig
 
-In the *application/bundles.php* file, register the Twig bundle
+That should install the **composer** bundle as well since its a dependancy.
+
+In the **application/bundles.php** file, register the Composer and Twig bundles.
 
 ```php
+return array(
+	'composer' => array('auto' => true),
 	'twigview' => array(
     'location' => 'twig', 'autoloads' => array(
         'map' => array(
@@ -48,9 +43,10 @@ In the *application/bundles.php* file, register the Twig bundle
         	)
     	)
     ),
+);
 ```
 
-Replace the View alias (optional)
+### Replace the View alias (optional)
 
 In the *application/config/application.php* file, replace the alias with the following:
 
@@ -61,12 +57,12 @@ In the *application/config/application.php* file, replace the alias with the fol
 );
 ```
 
-If you leave the alias as-is, you can still call \TwigView\View in your controllers.
+If you leave the alias as-is, you can still call ```\TwigView\View``` in your controllers.
 
 ## Usage ##
 
-All your views must have the *.twig* file extension. You can use the TwigView\View object in the same 
-manner as the Laravel\View object. Just keep in mind that you are using Twig syntax inside your views.
+All your views must have the **.twig** file extension. You can use the ```TwigView\View``` object in the same 
+manner as the ```Laravel\View``` object. Just keep in mind that you are using Twig syntax inside your views.
 
 For example call the Twig view like this
 
@@ -82,7 +78,7 @@ $data = array('message' => 'Hello');
 return View::make('home.index', $data);
 ``` 
 
-and in your home/index.twig do this
+and in your **home/index.twig** do this
 
 	{{ message }}
 
