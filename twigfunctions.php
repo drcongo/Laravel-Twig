@@ -7,6 +7,191 @@ use Laravel\Lang;
 use Laravel\Str;
 use Laravel\URL;
 
+
+function twig_fn_form_open($action=null, $method='POST', $attributes=array(), $https=false)
+{
+    return Form::open($action, $method, $attributes, $https);
+}
+
+function twig_fn_form_search_open($action=null, $method='POST', $attributes=array(), $https=false)
+{
+    return Form::search_open($action, $method, $attributes, $https);
+}
+
+function twig_fn_form_search_box($action=null, $method='POST', $attributes=array(), $https=false)
+{
+    return Form::search_box($action, $method, $attributes, $https);
+}
+
+function twig_fn_form_open_secure($action=null, $method='POST', $attributes=array(), $https=false)
+{
+    return Form::open_secure($action, $method, $attributes, $https);
+}
+
+function twig_fn_form_open_for_files($action=null, $method='POST', $attributes=array(), $https=false)
+{
+    return Form::open_for_files($action, $method, $attributes, $https);
+}
+
+function twig_fn_form_open_secure_for_files($action=null, $method='POST', $attributes=array(), $https=false)
+{
+    return Form::open_secure_for_files($action, $method, $attributes, $https);
+}
+
+function twig_fn_form_close()
+{
+    return Form::close();
+}
+
+function twig_fn_form_token()
+{
+    return Form::token();
+}
+
+function twig_fn_form_label($name, $value, $attributes=array())
+{
+    return Form::label($name, $value, $attributes);
+}
+
+function twig_fn_form_input($type, $name, $value=null, $attributes=array())
+{
+    return Form::input($type, $name, $value, $attributes);
+}
+
+function twig_fn_form_text($name, $value=null, $attributes=array())
+{
+    return Form::text($name, $value, $attributes);
+}
+
+function twig_fn_form_password($name, $attributes=array())
+{
+    return Form::password($name, $attributes);
+}
+
+function twig_fn_form_hidden($name, $value=null, $attributes=array())
+{
+    return Form::hidden($name, $value, $attributes);
+}
+
+function twig_fn_form_search($name, $value=null, $attributes=array())
+{
+    return Form::search($name, $value, $attributes);
+}
+
+function twig_fn_form_email($name, $value=null, $attributes=array())
+{
+    return Form::email($name, $value, $attributes);
+}
+
+function twig_fn_form_telephone($name, $value=null, $attributes=array())
+{
+    return Form::telephone($name, $value, $attributes);
+}
+
+function twig_fn_form_url($name, $value=null, $attributes=array())
+{
+    return Form::url($name, $value, $attributes);
+}
+
+function twig_fn_form_number($name, $value=null, $attributes=array())
+{
+    return Form::number($name, $value, $attributes);
+}
+
+function twig_fn_form_date($name, $value=null, $attributes=array())
+{
+    return Form::date($name, $value, $attributes);
+}
+
+function twig_fn_form_file($name, $attributes=array())
+{
+    return Form::file($name, $attributes);
+}
+
+function twig_fn_form_textarea($name, $value='', $attributes=array())
+{
+    return Form::textarea($name, $value, $attributes);
+}
+
+function twig_fn_form_select($name, $options=array(), $selected=null, $attributes=array())
+{
+    return Form::select($name, $options, $selected, $attributes);
+}
+
+function twig_fn_form_optgroup($options, $label, $selected)
+{
+    return Form::optgroup($options, $label, $selected);
+}
+
+function twig_fn_form_option($value, $display, $selected)
+{
+    return Form::option($value, $display, $selected);
+}
+
+function twig_fn_form_checkbox($name, $value=1, $checked=false, $attributes=array())
+{
+    return Form::checkbox($name, $value, $checked, $attributes);
+}
+
+function twig_fn_form_radio($name, $value=1, $checked=false, $attributes=array())
+{
+    return Form::radio($name, $value, $checked, $attributes);
+}
+
+function twig_fn_form_checkable($type, $name, $value=1, $checked=false, $attributes=array())
+{
+    return Form::checkable($type, $name, $value, $checked, $attributes);
+}
+
+function twig_fn_form_submit($value, $attributes=array())
+{
+    return Form::submit($value, $attributes);
+}
+
+function twig_fn_form_reset($value, $attributes=array())
+{
+    return Form::reset($value, $attributes);
+}
+
+function twig_fn_form_image($url, $name, $attributes=array())
+{
+    return Form::image($url, $name, $attributes);
+}
+
+function twig_fn_form_button($value, $attributes=array())
+{
+    return Form::button($value, $attributes);
+}
+
+function twig_fn_form_id($name, $attributes)
+{
+    return Form::id($name, $attributes);
+}
+
+/* BOOTSTRAPPER */
+
+function twig_fn_boot_styles()
+{
+    return Asset::container('bootstrapper')->styles();
+}
+
+function twig_fn_boot_scripts()
+{
+    return Asset::container('bootstrapper')->scripts();
+}
+
+function twig_fn_form_horizontal_open($action=null, $method='POST', $attributes=array(), $https=false)
+{
+    return Form::horizontal_open($action, $method, $attributes, $https);
+}
+
+function twig_fn_form_control_group($label, $control, $group_class = '', $help = null)
+{
+    return Form::control_group($label, $control, $group_class, $help);
+}
+
+
+
 /**
  * Read and return a config value
  *
@@ -176,6 +361,7 @@ function twig_fn_script($file, $params = '')
  */
 function twig_fn_style($file, $params = '')
 {
+
 	$attrs = array();
 
 	if (strlen(trim($params)) != 0)
